@@ -1,4 +1,4 @@
-package com.mkarasz.hw6;
+package com.mkarasz.hw6.simpleText;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

@@ -1,4 +1,4 @@
-package com.mkarasz.hw6;
+package com.mkarasz.hw6.simpleText;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -127,5 +127,21 @@ public final class Palindrome {
 			tmp.toLowerCase();
 			list.add(tmp);
 		}
+	}
+	
+	public static double frequencyProperWords(ArrayList<String> list) {
+		double proper = 0;
+		
+		for(String i : list) {
+			if(stringIsProper(i)) {
+				proper++;
+			}
+		}
+		
+		return (proper / list.size()) * 100;
+	}
+	
+	private static boolean stringIsProper(String str) {
+		return (str.startsWith("A") || str.startsWith("B") || str.startsWith("C") || str.startsWith("D") || str.startsWith("E") || str.startsWith("F") || str.startsWith("G") || str.startsWith("H") || str.startsWith("I") || str.startsWith("J") || str.startsWith("K") || str.startsWith("L") || str.startsWith("M") || str.startsWith("N") || str.startsWith("O") || str.startsWith("P") || str.startsWith("Q") || str.startsWith("R") || str.startsWith("S") || str.startsWith("T") || str.startsWith("U") || str.startsWith("V") || str.startsWith("W") || str.startsWith("X") || str.startsWith("Y") || str.startsWith("Z"));
 	}
 }
