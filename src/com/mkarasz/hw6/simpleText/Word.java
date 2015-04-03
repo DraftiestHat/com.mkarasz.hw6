@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public final class Word {
 	public static int shortestWordLength(ArrayList<String> list) {
-		int shortLength = -1;
+		int shortLength = list.get(0).length();
 		int currentLength = 0;
 		
 		for(String i : list) {
@@ -78,43 +78,44 @@ public final class Word {
 	public static ArrayList<Double> letterFrequency(ArrayList<String> list) {
 		ArrayList<String> letterList = new ArrayList<String>();
 		ArrayList<Double> freqList = new ArrayList<Double>();
+		
 		for(String i : list){
 			splitCharacters(i, letterList);
 		}
 		
-		freqList.add((double) Collections.frequency(list, "a"));
-		freqList.add((double) Collections.frequency(list, "b"));
-		freqList.add((double) Collections.frequency(list, "c"));
-		freqList.add((double) Collections.frequency(list, "d"));
-		freqList.add((double) Collections.frequency(list, "e"));
-		freqList.add((double) Collections.frequency(list, "f"));
-		freqList.add((double) Collections.frequency(list, "g"));
-		freqList.add((double) Collections.frequency(list, "h"));
-		freqList.add((double) Collections.frequency(list, "i"));
-		freqList.add((double) Collections.frequency(list, "j"));
-		freqList.add((double) Collections.frequency(list, "k"));
-		freqList.add((double) Collections.frequency(list, "l"));
-		freqList.add((double) Collections.frequency(list, "m"));
-		freqList.add((double) Collections.frequency(list, "n"));
-		freqList.add((double) Collections.frequency(list, "o"));
-		freqList.add((double) Collections.frequency(list, "p"));
-		freqList.add((double) Collections.frequency(list, "q"));
-		freqList.add((double) Collections.frequency(list, "r"));
-		freqList.add((double) Collections.frequency(list, "s"));
-		freqList.add((double) Collections.frequency(list, "t"));
-		freqList.add((double) Collections.frequency(list, "u"));
-		freqList.add((double) Collections.frequency(list, "v"));
-		freqList.add((double) Collections.frequency(list, "w"));
-		freqList.add((double) Collections.frequency(list, "x"));
-		freqList.add((double) Collections.frequency(list, "y"));
-		freqList.add((double) Collections.frequency(list, "z"));
+		freqList.add(((double) Collections.frequency(letterList, "a") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "b") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "c") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "d") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "e") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "f") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "g") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "h") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "i") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "j") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "k") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "l") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "m") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "n") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "o") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "p") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "q") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "r") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "s") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "t") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "u") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "v") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "w") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "x") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "y") / (double) letterList.size()) * 100);
+		freqList.add(((double) Collections.frequency(letterList, "z") / (double) letterList.size()) * 100);
 		
 		
 		
 		
 		
 		
-		return null;
+		return freqList;
 	}
 	
 	private static void splitCharacters(String i, ArrayList<String> list) {
@@ -122,10 +123,9 @@ public final class Word {
 		String tmp = null;
 		
 		for(int j = 0; j < len; j++) {
-			System.out.println("j is " + j + " and the letter is " + i.substring(j, j+1));
+			//System.out.println("j is " + j + " and the letter is " + i.substring(j, j+1));
 			tmp = i.substring(j, j + 1);
-			tmp.toLowerCase();
-			list.add(tmp);
+			list.add(tmp.toLowerCase());
 		}
 	}
 	
@@ -209,4 +209,19 @@ public final class Word {
 		
 		return intList;
 	}
+	
+	public static ArrayList<String> beginAndEndSameLetter(ArrayList<String> list) {
+		ArrayList<String> ret = new ArrayList<String>();
+		for(String i : list) {
+			if(i.toLowerCase().endsWith(i.toLowerCase().substring(0, 1))) {
+				ret.add(i);
+			}
+		}
+		
+		return ret;
+	}
+	
+	
+	
+	
 }

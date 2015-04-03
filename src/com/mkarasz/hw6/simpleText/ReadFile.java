@@ -27,7 +27,7 @@ public class ReadFile {
 	}
 	
 	private void readFileByWord(String fileName) {
-		System.out.println("Reading File from Java code.");
+		//System.out.println("Reading File from Java code.");
 		this.wordList = new ArrayList<String>();
 	    
 	    try{
