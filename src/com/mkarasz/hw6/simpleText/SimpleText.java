@@ -15,7 +15,7 @@ public class SimpleText {
 		printStrings(Word.beginAndEndSameLetter(file.getWordList()), "same.txt");
 		
 		printStats(file.getWordList(), "statistics.txt");
-		
+		System.out.println("Done.");
 	}
 	
 	private static void printStrings(ArrayList<String> list, String fileName) {

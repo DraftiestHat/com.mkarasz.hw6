@@ -41,7 +41,6 @@ public class ReadFile {
 	       //Variable to hold the one line data
 	       String line;
 	
-	       // Read file line by line and print on the console
 	       while ((line = bufferReader.readLine()) != null)   {
 	         String[] tokens = line.split(" ");
 	         for(String i : tokens) {
