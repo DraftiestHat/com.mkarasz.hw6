@@ -41,7 +41,7 @@ public class WriteKML {
 			buf.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
 			buf.write("<kml xmlns=\"http://earth.google.com/kml/2.1\">\n");
 			buf.write("<Document>\n");
-			buf.write("\t<name>Mystery Locations></name>\n");
+			buf.write("\t<name>Mystery Locations</name>\n");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,9 +61,9 @@ public class WriteKML {
 	private static void printLocation(BufferedWriter buf, String[] i, String locationName) {
 		try {
 			buf.write("\t<Placemark>\n");
-			buf.write("\t\t<name> " + locationName + "</name>\n");
+			buf.write("\t\t<name>" + locationName + "</name>\n");
 			buf.write("\t\t<Point>\n");
-			buf.write("\t\t\t<coordinates>" + i[0] + "," + i[1] + ",0</coordinates>\n");
+			buf.write("\t\t\t<coordinates>" + i[1] + "," + i[0] + ",0</coordinates>\n");
 			buf.write("\t\t</Point>\n");
 			buf.write("\t</Placemark>\n");
 		} catch (IOException e) {
