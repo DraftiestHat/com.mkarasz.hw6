@@ -1,8 +1,13 @@
 package com.mkarasz.hw6.Elements;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class Element implements Comparable<Element>{
+public class Element implements Comparable<Element>, Serializable{
+	/**
+	 * I have no clue, but this was generated.
+	 */
+	private static final long serialVersionUID = 4765490011903526827L;
 	private String name;
 	private String symbol;
 	private int orderNumber;
@@ -158,7 +163,7 @@ public class Element implements Comparable<Element>{
 	@Override
 	public int compareTo(Element elem) {
 		String nameOtherElem = elem.getName();
-		return elem.getName().compareToIgnoreCase(nameOtherElem);
+		return this.getName().compareToIgnoreCase(nameOtherElem);
 	}
 	
 	public static Comparator<Element> ElementTerrestrialAbundanceComparator = new Comparator<Element>() {
