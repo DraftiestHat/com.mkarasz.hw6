@@ -8,11 +8,24 @@ import java.util.Scanner;
 public class ReadFile {
 	private ArrayList<String> wordList;
 	
+	/**
+	 * Just a wrapper to get the file the first time an object is made
+	 */
 	public ReadFile() {
 		String fileName = getFilename();		
 		readFileByWord(fileName);
 	}
 	
+	/** Wrapper, same as regular constructor just with taking in a file
+	 * @param fileName
+	 */
+	public ReadFile(String fileName) {
+		readFileByWord(fileName);
+	}
+	
+	/** For getting user input for a file name
+	 * @return the filename
+	 */
 	private String getFilename() {
 		String fileName = null;
 		System.out.println("Please insert a filename.");
@@ -26,6 +39,9 @@ public class ReadFile {
 		return fileName;
 	}
 	
+	/** Reads the file in and stores word by word
+	 * @param fileName the file to read in
+	 */
 	private void readFileByWord(String fileName) {
 		//System.out.println("Reading File from Java code.");
 		this.wordList = new ArrayList<String>();
@@ -56,15 +72,15 @@ public class ReadFile {
 
 	
 	
-	/**
-	 * @return the wordList
+	/** Gives back an arraylist of words gotten from the file
+	 * @return the wordList arraylist of words from file.
 	 */
 	public ArrayList<String> getWordList() {
 		return wordList;
 	}
 
-	/**
-	 * @param fileName
+	/** takes a file to read the words from 
+	 * @param fileName the file to read the words from
 	 */
 	public void setWordList(String fileName) { 
 		readFileByWord(fileName);

@@ -7,6 +7,9 @@ import java.util.ArrayList;
 
 public class SimpleText {
 
+	/**  main...
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		ReadFile file = new ReadFile();
 				
@@ -18,6 +21,10 @@ public class SimpleText {
 		System.out.println("Done.");
 	}
 	
+	/**prints out all of the strings in an arraylist to a file 
+	 * @param list the list to print
+	 * @param fileName the file to print to
+	 */
 	private static void printStrings(ArrayList<String> list, String fileName) {
 		PrintWriter pw = null;
 		try {
@@ -35,6 +42,10 @@ public class SimpleText {
 		pw.close();
 	}
 	
+	/**prints out all of the stats of an arraylist to a file 
+	 * @param list the list to print
+	 * @param fileName the file to print to
+	 */
 	private static void printStats(ArrayList<String> list, String fileName) {
 		PrintWriter pw = null;
 		try {
@@ -55,6 +66,10 @@ public class SimpleText {
 		
 	}
 	
+	/**Prints the letter frequency to a printWriter
+	 * @param pw the printwriter to print to
+	 * @param list the list to read from
+	 */
 	private static void printLetterFrequency(PrintWriter pw, ArrayList<Double> list) {
 		pw.println("Total letter frequency is as follows: ");
 		pw.println("\tA: " + list.get(0) + "%");
@@ -85,6 +100,10 @@ public class SimpleText {
 		pw.println("\tZ: " + list.get(25) + "%");
 	}
 	
+	/**Prints the frequency of words that start with each letter
+	 * @param pw the printwriter to print to
+	 * @param list the list to read from
+	 */
 	private static void printLetterStartsWithFrequency(PrintWriter pw, ArrayList<Integer> list) {
 		pw.println("The number of words that start with the same letter are as follows:");
 		pw.println("\tA: " + list.get(0));

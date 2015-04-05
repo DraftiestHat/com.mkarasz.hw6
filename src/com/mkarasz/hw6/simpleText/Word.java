@@ -3,7 +3,15 @@ package com.mkarasz.hw6.simpleText;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**Multiple operations on an arrayList of strings
+ * @author Matt
+ *
+ */
 public final class Word {
+	/**Gets the shortest word length in an arraylist
+	 * @param list the list to read from
+	 * @return the size of the shortest length
+	 */
 	public static int shortestWordLength(ArrayList<String> list) {
 		int shortLength = list.get(0).length();
 		int currentLength = 0;
@@ -18,6 +26,10 @@ public final class Word {
 		return shortLength;
 	}
 	
+	/**Gets the longest word length in an arraylist
+	 * @param list the list to read from
+	 * @return the size of the longest length
+	 */
 	public static int longestWordLength(ArrayList<String> list) {
 		int shortLength = -1;
 		int currentLength = 0;
@@ -32,6 +44,10 @@ public final class Word {
 		return shortLength;
 	}
 	
+	/**Returns a list of the shortest words in a list
+	 * @param list the list to read from 
+	 * @return the list of shortest words
+	 */
 	public static ArrayList<String> shortestWords(ArrayList<String> list) {
 		int shortLength = shortestWordLength(list);
 		ArrayList<String> ret = new ArrayList<>();
@@ -45,6 +61,10 @@ public final class Word {
 		return ret;
 	}
 	
+	/**Returns a list of the longest words in a list
+	 * @param list the list to read from 
+	 * @return the list of longest words
+	 */
 	public static ArrayList<String> longestWords(ArrayList<String> list) {
 		int longLength = longestWordLength(list);
 		ArrayList<String> ret = new ArrayList<>();
@@ -58,6 +78,10 @@ public final class Word {
 		return ret;
 	}
 	
+	/** Finds the average length of all strings in an arraylist of strings
+	 * @param list the strings to average
+	 * @return the average length as an integer
+	 */
 	public static int averageLength(ArrayList<String> list) {
 		long totalLength = 0;
 		int avg = 0;
@@ -71,10 +95,18 @@ public final class Word {
 		return avg;
 	}
 	
+	/** Returns the amount of elements in a list
+	 * @param list the list to size up
+	 * @return the size of the list
+	 */
 	public static int totalNumWords(ArrayList<String> list) {
 		return list.size();
 	}
 	
+	/**Finds the frequency of all letters in a given file
+	 * @param list a list of words to check
+	 * @return a list of percentages of each letter (0 is A, 25 is Z);
+	 */
 	public static ArrayList<Double> letterFrequency(ArrayList<String> list) {
 		ArrayList<String> letterList = new ArrayList<String>();
 		ArrayList<Double> freqList = new ArrayList<Double>();
@@ -110,25 +142,27 @@ public final class Word {
 		freqList.add(((double) Collections.frequency(letterList, "y") / (double) letterList.size()) * 100);
 		freqList.add(((double) Collections.frequency(letterList, "z") / (double) letterList.size()) * 100);
 		
-		
-		
-		
-		
-		
 		return freqList;
 	}
 	
+	/** Splits a string into characters and adds those characters individually to the list
+	 * @param i the string to split into characters
+	 * @param list the list to put characters in
+	 */
 	private static void splitCharacters(String i, ArrayList<String> list) {
 		int len = i.length();
 		String tmp = null;
 		
 		for(int j = 0; j < len; j++) {
-			//System.out.println("j is " + j + " and the letter is " + i.substring(j, j+1));
 			tmp = i.substring(j, j + 1);
 			list.add(tmp.toLowerCase());
 		}
 	}
 	
+	/** Gives a percentage for how many proper words there are in a list
+	 * @param list the list to read from
+	 * @return the percentage of proper words
+	 */
 	public static double frequencyProperWords(ArrayList<String> list) {
 		double proper = 0;
 		
@@ -141,10 +175,18 @@ public final class Word {
 		return (proper / list.size()) * 100;
 	}
 	
+	/** Tells whehter a string is proper (first letter is capitalized)
+	 * @param str the string to decide if it's proper or not
+	 * @return whether or not it's proper (true/false)
+	 */
 	private static boolean stringIsProper(String str) {
 		return (str.startsWith("A") || str.startsWith("B") || str.startsWith("C") || str.startsWith("D") || str.startsWith("E") || str.startsWith("F") || str.startsWith("G") || str.startsWith("H") || str.startsWith("I") || str.startsWith("J") || str.startsWith("K") || str.startsWith("L") || str.startsWith("M") || str.startsWith("N") || str.startsWith("O") || str.startsWith("P") || str.startsWith("Q") || str.startsWith("R") || str.startsWith("S") || str.startsWith("T") || str.startsWith("U") || str.startsWith("V") || str.startsWith("W") || str.startsWith("X") || str.startsWith("Y") || str.startsWith("Z"));
 	}
 	
+	/** Returns an arraylist of integers that tells how many times a word in the list starts with a letter
+	 * @param list the list to read from
+	 * @return the counts of starting letters
+	 */
 	public static ArrayList<Integer> beginWithLetters(ArrayList<String> list) {
 		ArrayList<Integer> intList = new ArrayList<Integer>();
 		
@@ -210,6 +252,10 @@ public final class Word {
 		return intList;
 	}
 	
+	/** Takes all words from a list and puts them into another if they start and end with the same letter.
+	 * @param list the words to check
+	 * @return all words that start and end with the same letter
+	 */
 	public static ArrayList<String> beginAndEndSameLetter(ArrayList<String> list) {
 		ArrayList<String> ret = new ArrayList<String>();
 		for(String i : list) {
