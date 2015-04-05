@@ -8,23 +8,36 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+/**
+ * Prints elementLists in a variety of ways
+ * @author Matt
+ *
+ */
 public class PrintElements {
+	/**
+	 * Reads element lists to human readable text
+	 * @param list the list to print
+	 * @param fileName the file to write to
+	 */
 	protected static void text(ArrayList<Element> list, String fileName) {
-BufferedWriter buf = null;
+		BufferedWriter buf = null;
 		
 		try {
 			buf = new BufferedWriter(new FileWriter(new File(fileName)));
 		} catch (IOException e) {
 			
 			e.printStackTrace();
+			System.exit(-1);
 		}
 		
 		try {
 			buf.write("Element\t\t\tSymbol\tOrder#\tR\tC\tAtomic Weight\tDensity\t\tAtomic Diameter\tTerr.Abund.\tCoef.of Resis.\n");
+			//prints a delimintator
 			for(int j = 0; j < 110; j++){
 				buf.write("-");
 			}
 			buf.write("\n");
+			//UGLY writing out info properly deliminated. Could have done this with algorithms - meh.
 			for(Element i : list) {
 				buf.write(i.getName() + "");
 				for(int j = i.getName().length(); j < 16 ; j++) {
@@ -79,6 +92,10 @@ BufferedWriter buf = null;
 	}
 	
 	
+	/** Prints elements in serialized form
+	 * @param list the list to print
+	 * @param fileName the file to write to
+	 */
 	protected static void serialized(ArrayList<Element> list, String fileName){
 		ObjectOutputStream out = null;
 		try {

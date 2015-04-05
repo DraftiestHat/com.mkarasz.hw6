@@ -6,9 +6,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/** Writes out the information from an arrayList of string arrays in KML format
+ * @author Matt
+ *
+ */
 public class WriteKML {
 	
 	
+	/**call functions to write out the information from an arrayList of string arrays in KML format
+	 * @param list
+	 */
 	public static void writeKML(ArrayList<String[]> list) {
 		int j = 1;
 		BufferedWriter buf = null;
@@ -36,6 +43,9 @@ public class WriteKML {
 		}
 	}
 	
+	/** Prints the header of a kml file.
+	 * @param buf
+	 */
 	private static void printHeader(BufferedWriter buf) {
 		try {
 			buf.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
@@ -49,6 +59,9 @@ public class WriteKML {
 		
 	}
 	
+	/** Prints the footer of a KML file
+	 * @param buf
+	 */
 	private static void printFooter(BufferedWriter buf) {
 		try {
 			buf.write("</Document>\n</kml>\n");
@@ -58,6 +71,11 @@ public class WriteKML {
 		}
 	}
 	
+	/** Prints the actual locations (in the string array) information along with an assigned name 
+	 * @param buf
+	 * @param i
+	 * @param locationName
+	 */
 	private static void printLocation(BufferedWriter buf, String[] i, String locationName) {
 		try {
 			buf.write("\t<Placemark>\n");

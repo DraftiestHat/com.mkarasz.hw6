@@ -8,9 +8,16 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
+/** reads in elements from text or serialized file
+ * @author Matt
+ *
+ */
 public class ReadElements {
+	/** Reads the elements from a text file of the form given to me
+	 * @param fileName the file to read
+	 * @return the arrayList of elements from the text file
+	 */
 	protected static ArrayList<Element> text(String fileName) {
-		//System.out.println("Reading File from Java code.");
 		ArrayList<Element> elemList = new ArrayList<Element>();
 	    String[] tokens = null;
 	    Element elem = null;
@@ -30,11 +37,11 @@ public class ReadElements {
 	    	   System.exit(-1);
 	       }
 
-	       
+	       //get rid of first 20 lines
 	       for(int i = 0; i < 20; i++) {
 	    	   line = bufferReader.readLine();
 	       }
-	       
+	       //get actual information
 	       while((line = bufferReader.readLine()) != null) {
 	    	   line = line.trim().replaceAll(" +", " ");
 	    	   tokens = line.split(" ");
@@ -49,10 +56,6 @@ public class ReadElements {
 	       
 	    }catch(Exception e){
 	       System.out.println("Error while reading file line by line:" + e.getMessage());
-	       System.out.println(tokens.length + "");
-	       for(String i : tokens) {
-	    	   System.out.println(i + "\n");
-	       }
 	       e.printStackTrace();
 	       System.exit(-1);
 	    }
@@ -60,6 +63,10 @@ public class ReadElements {
 	    return elemList;
 	}
 	
+	/**Reads in serialized information, probably written out by the serialized writer in PrintElements
+	 * @param fileName the file to read
+	 * @return The arrayList of elements from the file
+	 */
 	@SuppressWarnings("unchecked")
 	protected static ArrayList<Element> serialized(String fileName){
 		ObjectInputStream ois = null;
@@ -69,14 +76,17 @@ public class ReadElements {
 			list = (ArrayList<Element>) ois.readObject();
 			ois.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			System.out.println("File " + fileName + " not found: " + e.getMessage());
 			e.printStackTrace();
+			System.exit(-1);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println("IOException: " + e.getMessage());
 			e.printStackTrace();
+			System.exit(-1);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Class not found: " + e.getMessage());
 			e.printStackTrace();
+			System.exit(-1);
 		} 
 		System.out.println(fileName + " read.");
 		return list;

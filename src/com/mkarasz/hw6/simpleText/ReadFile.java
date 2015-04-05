@@ -5,6 +5,10 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/** Just for reading the file and putting the words into an arrayList
+ * @author Matt
+ *
+ */
 public class ReadFile {
 	private ArrayList<String> wordList;
 	

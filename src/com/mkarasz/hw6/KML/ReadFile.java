@@ -8,26 +8,32 @@ import java.util.Scanner;
 public class ReadFile {
 	private ArrayList<String[]> locationList;
 	
-	/**
+	/** Get the location list
 	 * @return the locationList
 	 */
 	public ArrayList<String[]> getLocationList() {
 		return locationList;
 	}
 
-	/**
-	 * @param locationList the locationList to set
+	/** 
+	 * Re-gets the location information from the user
 	 */
-	public void setLocationList(ArrayList<String[]> locationList) {
+	public void setLocationList() {
 		String fileName = getFilename();
 		readFileByLineAndDeliminate(fileName);
 	}
 
+	/**
+	 * Constructor for getting a file with location information
+	 */
 	public ReadFile() {
 		String fileName = getFilename();		
 		readFileByLineAndDeliminate(fileName);
 	}
 	
+	/** Gets the filename and return it as a string
+	 * @return the file name
+	 */
 	private String getFilename() {
 		String fileName = null;
 		System.out.println("Please insert a filename.");
@@ -41,6 +47,9 @@ public class ReadFile {
 		return fileName;
 	}
 	
+	/** Reads the actual file and puts the information into the locationList of the object
+	 * @param fileName the file to read
+	 */
 	private void readFileByLineAndDeliminate(String fileName) {
 		//System.out.println("Reading File from Java code.");
 		this.locationList = new ArrayList<String[]>();

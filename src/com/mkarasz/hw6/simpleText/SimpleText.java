@@ -5,9 +5,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+/** Tests word and palindrome
+ * @author Matt
+ *
+ */
 public class SimpleText {
 
-	/**  main...
+	/**  Simple wrapper for testing the calls with any file.
 	 * @param args
 	 */
 	public static void main(String[] args) {

@@ -4,8 +4,11 @@ import java.util.ArrayList;
 
 public class MainElements {
 
+	/** Caller for elements using specific file names.
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		System.out.println("This currently doesn't take in a file name. Should have specified that in the requirements if you wanted it.");
+		System.out.println("This currently doesn't take in a file name.");
 		ArrayList<Element> list = ReadElements.text("periodic.txt");
 		SortElements.name(list);
 		PrintElements.text(list, "elements.txt");
